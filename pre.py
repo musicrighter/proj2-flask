@@ -31,7 +31,7 @@ def process(raw):
 
         if field == "begin":
             try:
-                base = arrow.get(content)
+                base = arrow.get(content, "M/D/YYYY")
             except:
                 raise ValueError("Unable to parse date {}".format(content))
 
