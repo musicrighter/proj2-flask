@@ -32,14 +32,20 @@ tr.even {
 
 tr.now {
     /* highlght this one */ 
-    background-color: rgb(250,153,159);
+    background-color: rgb(250,253,59);
 }
 
 .class-schedule .week {
-    
     font-weight: bolder;
-    font-size: 150%; 
+    font-size: 100%; 
     text-align: center; 
+}
+
+.class-schedule .weekNum {
+    font-weight: bolder;
+    font-size: 130%; 
+    text-align: center; 
+    padding: 5px;
 }
 
 .class-schedule .topic {

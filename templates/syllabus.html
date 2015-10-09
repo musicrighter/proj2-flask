@@ -17,10 +17,16 @@
   <tr class="even">
   {% else %}
   <tr class="odd">
-  {% endif %}	   
+  {% endif %}	
+
+  {% if entry.current == True %}
+  <tr class="now">
+  {% endif %} 
+
+    <td class="weekNum">week {{ loop.index }}</td>
     <td class="week">{{ entry.week }}</td>
     <td class="topic">{{ entry.topic }}</td>
-    <td class="project">{{ entry.project}}</td>
+    <td class="project">{{ entry.project }}</td>
   </tr>
   {% endfor %}
   

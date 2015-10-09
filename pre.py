@@ -13,7 +13,9 @@ def process(raw):
     """
     field = None
     entry = { }
-    cooked = [ ] 
+    cooked = [ ]
+    count = 0
+     
     for line in raw:
         line = line.rstrip()
         if len(line) == 0:
@@ -39,9 +41,20 @@ def process(raw):
             if entry:
                 cooked.append(entry)
                 entry = { }
+                base = base.replace(weeks=+1)
+
+            entry['current'] = False
             entry['topic'] = ""
             entry['project'] = ""
-            entry['week'] = content
+            entry['week'] = base.format("MM/DD/YYYY")
+
+            early = base;
+            late = early.replace(weeks=+1)
+
+            if base < arrow.now() < late:
+                entry['current'] = True
+
+            count += 1
 
         elif field == 'topic' or field == 'project':
             entry[field] = content
